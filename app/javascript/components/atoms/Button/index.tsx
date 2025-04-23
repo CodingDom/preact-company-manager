@@ -16,7 +16,7 @@ export enum ButtonSizes {
 export interface ButtonProps {
   type?: ButtonTypes;
   backgroundColor?: string;
-  size?: "small" | "medium" | "large";
+  size?: ButtonSizes;
   label: string;
   onClick?: h.JSX.MouseEventHandler<HTMLButtonElement>;
 }
@@ -26,13 +26,13 @@ export interface ButtonProps {
  *
  * @param {object} props
  * @param {string} [props.type='primary'] Default is `primary`
- * @param {'small' | 'medium' | 'large'} [props.size='medium'] Default is `'medium'`
+ * @param {string} [props.size='medium'] Default is `'medium'`
  * @param {string} props.label
  * @param {function} props.onClick
  */
 export const Button = ({
   type = ButtonTypes.Primary,
-  size = "medium",
+  size = ButtonSizes.Medium,
   label,
   ...props
 }: ButtonProps) => {
