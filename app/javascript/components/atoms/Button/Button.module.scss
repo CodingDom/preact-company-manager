@@ -1,12 +1,19 @@
 @use "variables";
+@use "sass:color";
 
 .button {
   padding: 8px 16px;
   border-radius: 4px;
+  border: 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
 
   &--primary {
     color: white;
     background-color: variables.$color-primary;
-    border: 0;
+
+    &:hover {
+      background-color: color.adjust(variables.$color-primary, $lightness: 10%);
+    }
   }
 }
