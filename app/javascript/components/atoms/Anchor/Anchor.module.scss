@@ -1,0 +1,6 @@
+@use "variables";
+
+.anchor {
+  color: variables.$color-primary;
+  text-decoration: none;
+}
