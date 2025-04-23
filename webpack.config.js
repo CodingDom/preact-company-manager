@@ -4,6 +4,9 @@ const webpack = require("webpack")
 module.exports = {
   mode: "production",
   devtool: "source-map",
+  entry: {
+    application: "./app/javascript/packs/application.tsx"
+  },
   output: {
     filename: "[name].js",
     sourceMapFilename: "[file].map",

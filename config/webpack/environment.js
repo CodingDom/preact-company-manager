@@ -1,5 +1,10 @@
 const { environment } = require('@rails/webpacker')
 
+// Define the entry points
+environment.entry = {
+  'application': './app/javascript/packs/application.tsx',  // Default JS entry for the app
+};
+
 // Configure the node property
 environment.config.merge({
     node: {

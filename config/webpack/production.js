@@ -5,6 +5,9 @@ const path = require('path');
 
 environment.config.merge({
   mode: 'production', // Ensure the mode is set to production
+  entry: {
+    application: './app/javascript/packs/application.tsx', // Default entry
+  },
   output: {
     filename: '[name]-[contenthash].js', // Output with content hash for cache busting
     path: path.resolve(__dirname, '..', 'public', 'packs') // Correct path for output
