@@ -1,0 +1,7 @@
+@use "variables";
+
+.card {
+  border: 1px solid variables.$border-color;
+  border-radius: 8px;
+  padding: 16px;
+}
