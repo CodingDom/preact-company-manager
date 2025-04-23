@@ -1,0 +1,12 @@
+@use "variables";
+
+.card {
+  border: 1px solid variables.$border-color;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 3px 10px variables.$border-color;
+
+  &__header {
+    margin-bottom: 8px;
+  }
+}
