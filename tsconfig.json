@@ -2,7 +2,7 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
-    "target": "es6", 
+    "target": "es6",
     "module": "esnext",
     "moduleResolution": "node",
     "strict": true,
