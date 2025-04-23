@@ -35,7 +35,9 @@ const Dashboard = (props: DashboardProps) => {
             heading="Total Employees"
             cta={{ href: "/dashboard", label: "View More" }}
           >
-            <p>{employeeStats.totalEmployees}</p>
+            <p className="lead-text">
+              {employeeStats.totalEmployees} Employees
+            </p>
           </Card>
         </div>
 
