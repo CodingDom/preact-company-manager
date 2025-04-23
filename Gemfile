@@ -36,7 +36,6 @@ gem "thruster", require: false
 gem "rack-cors"
 
 gem 'sass-rails'    # if using Sass
-gem 'webpacker'     # or use jsbundling-rails if you're going with esbuild
 gem 'jbuilder'      # optional, if you render some JSON
 
 group :development, :test do
@@ -49,3 +48,5 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 end
+
+gem "jsbundling-rails", "~> 1.3"
