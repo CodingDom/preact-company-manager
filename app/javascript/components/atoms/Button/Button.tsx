@@ -22,7 +22,7 @@ export interface ButtonProps {
 }
 
 /**
- * Primary UI component for user interaction
+ * UI component for user interaction
  *
  * @param {object} props
  * @param {string} [props.type='primary'] Default is `primary`
@@ -36,14 +36,13 @@ export const Button = ({
   label,
   ...props
 }: ButtonProps) => {
-  console.log(styles);
   return (
     <button
       type="button"
       className={[
-        styles["pcm-button"],
-        styles[`pcm-button--${size}`],
-        styles[`pcm-button--${type}`],
+        styles.button,
+        styles[`button--${size}`],
+        styles[`button--${type}`],
       ].join(" ")}
       {...props}
     >
