@@ -1,0 +1,12 @@
+@use "variables";
+
+.pcm-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+
+  &--primary {
+    color: white;
+    background-color: variables.$color-primary;
+    border: 0;
+  }
+}
