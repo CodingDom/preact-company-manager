@@ -9,8 +9,9 @@
   </head>
 
   <body>
-    <%= yield %>
-
+    <main id="main-layout">
+      <%= yield %>
+    </main>
     <%= javascript_include_tag "application", type: "module" %>
   </body>
 </html>
