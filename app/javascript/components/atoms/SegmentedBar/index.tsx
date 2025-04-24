@@ -2,8 +2,8 @@ import { FunctionalComponent } from "preact";
 import { DiagonalPattern } from "../DiagonalPattern";
 
 export enum SegmentedBarCornerRadius {
-  Default = 0,
-  Curved = 12,
+  Default = "0",
+  Curved = "12",
 }
 
 export interface SegmentedBarFill {
