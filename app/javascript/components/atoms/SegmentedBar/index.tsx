@@ -27,7 +27,7 @@ export const SegmentedBar: FunctionalComponent<SegmentedBarProps> = ({
 
   return (
     <svg width="100%" height="20">
-      <DiagonalPattern id={patternId} />
+      <DiagonalPattern id={patternId} rotation={-45} />
 
       {showBackground && (
         <rect
