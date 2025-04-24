@@ -1,37 +1,40 @@
 import { arc } from "d3-shape";
 import { scaleLinear } from "d3-scale";
 import { FunctionalComponent } from "preact";
-import { DiagonalPattern } from "../../atoms/DiagonalPattern";
+import { DiagonalPattern } from "../DiagonalPattern";
 
-export enum GaugeCornerRadius {
-  Default = 0,
-  Curved = 12,
+export enum SegmentedGaugeCornerRadius {
+  Default = "0",
+  Curved = "12",
 }
 
-export interface GaugeFill {
+export interface SegmentedGaugeFill {
   value: number;
   color: string;
 }
 
-export interface GaugeProps {
-  cornerRadius?: GaugeCornerRadius;
-  fills: GaugeFill[];
-  min: number;
-  max: number;
+export interface SegmentedGaugeProps {
+  cornerRadius?: SegmentedGaugeCornerRadius;
+  fills: SegmentedGaugeFill[];
+  heading?: string;
+  min?: number;
+  max?: number;
   showBackground?: boolean;
+  subheading?: string;
 }
 
-export const Gauge: FunctionalComponent<GaugeProps> = ({
+export const SegmentedGauge: FunctionalComponent<SegmentedGaugeProps> = ({
   fills = [],
   min = 0,
   max = 100,
   showBackground = false,
-  cornerRadius = GaugeCornerRadius.Default,
+  cornerRadius = SegmentedGaugeCornerRadius.Default,
 }) => {
+  const parsedRadius = parseFloat(cornerRadius);
   const backgroundArc =
     showBackground &&
-    arc().cornerRadius(cornerRadius)({
-      innerRadius: 0.65,
+    arc().cornerRadius(parsedRadius)({
+      innerRadius: 0.8,
       outerRadius: 1,
       startAngle: -Math.PI / 2,
       endAngle: Math.PI / 2,
@@ -56,8 +59,8 @@ export const Gauge: FunctionalComponent<GaugeProps> = ({
 
     return {
       path:
-        arc().cornerRadius(cornerRadius)({
-          innerRadius: 0.65,
+        arc().cornerRadius(parsedRadius)({
+          innerRadius: 0.8,
           outerRadius: 1,
           startAngle,
           endAngle,
@@ -72,7 +75,7 @@ export const Gauge: FunctionalComponent<GaugeProps> = ({
     <div>
       <svg
         style={{ overflow: "visible" }}
-        width="9em"
+        width="13rem"
         viewBox={[-1, -1, 2, 1].join(" ")}
       >
         <DiagonalPattern
