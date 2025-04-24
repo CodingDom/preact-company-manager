@@ -1,5 +1,3 @@
-import { h } from "preact";
-
 import { Card } from "../../molecules/Card";
 import { Row } from "../../atoms/Row";
 
