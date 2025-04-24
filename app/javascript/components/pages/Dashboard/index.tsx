@@ -2,9 +2,10 @@ import { Card } from "../../molecules/Card";
 import { Row } from "../../atoms/Row";
 
 import "./Dashboard.scss";
-import { Gauge, GaugeCornerRadius } from "../../molecules/Gauge";
 import { SegmentedStatusBar } from "../../molecules/SegmentedStatusBar";
 import { SegmentedBarCornerRadius } from "../../atoms/SegmentedBar";
+import { SegmentedStatusGauge } from "../../molecules/SegmentedStatusGauge";
+import { SegmentedGaugeCornerRadius } from "../../atoms/SegmentedGauge";
 
 interface RoleCategoryStats {
   name: string;
@@ -57,16 +58,25 @@ const Dashboard = (props: DashboardProps) => {
             heading="Job Applicants"
             cta={{ href: "/dashboard", label: "View More" }}
           >
-            <p>{props.applicantCount}</p>
-            <Gauge
-              fills={[
-                { color: "var(--color-success)", value: 50 },
-                { color: "var(--color-warning)", value: 25 },
-                { color: "var(--color-danger)", value: 25 },
+            <SegmentedStatusGauge
+              items={[
+                {
+                  color: "var(--color-success)",
+                  value: 50,
+                  label: "Applications reviewed",
+                },
+                {
+                  color: "var(--color-warning)",
+                  value: 25,
+                  label: "Applications on-list",
+                },
+                {
+                  color: "var(--color-danger)",
+                  value: 25,
+                  label: "Applications rejected",
+                },
               ]}
-              min={0}
-              max={100}
-              cornerRadius={GaugeCornerRadius.Curved}
+              cornerRadius={SegmentedGaugeCornerRadius.Curved}
             />
           </Card>
         </div>
