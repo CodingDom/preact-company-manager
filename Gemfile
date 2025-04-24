@@ -35,8 +35,8 @@ gem "thruster", require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
 gem "rack-cors"
 
-gem 'sass-rails'    # if using Sass
-gem 'jbuilder'      # optional, if you render some JSON
+gem "sass-rails"    # if using Sass
+gem "jbuilder"      # optional, if you render some JSON
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -49,7 +49,7 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   # Generate fake data for seeding database
-  gem 'faker'
+  gem "faker"
 end
 
 gem "jsbundling-rails", "~> 1.3"

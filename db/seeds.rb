@@ -9,7 +9,7 @@
 #   end
 
 # Seed Role Categories
-categories = ["Management", "Operational", "Lead Division"].map do |category|
+categories = [ "Management", "Operational", "Lead Division" ].map do |category|
   RoleCategory.find_or_create_by!(name: category)
 end
 
@@ -19,7 +19,7 @@ roles = [
   { name: "Human Resources Representative", category: categories[0] },
   { name: "Software Engineer", category: categories[1] },
   { name: "Software Engineer", category: categories[1] },
-  { name: "Coordinator", category: categories[2] },
+  { name: "Coordinator", category: categories[2] }
 ]
 
 
