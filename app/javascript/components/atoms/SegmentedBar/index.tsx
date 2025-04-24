@@ -1,4 +1,5 @@
 import { FunctionalComponent } from "preact";
+import { DiagonalPattern } from "../DiagonalPattern";
 
 export enum SegmentedBarCornerRadius {
   Default = 0,
@@ -22,9 +23,12 @@ export const SegmentedBar: FunctionalComponent<SegmentedBarProps> = ({
   showBackground,
 }) => {
   let lastPercentage = 0;
+  const patternId = `diagonal-pattern-${crypto.randomUUID()}`;
 
   return (
     <svg width="100%" height="20">
+      <DiagonalPattern id={patternId} />
+
       {showBackground && (
         <rect
           width="100%"
@@ -46,14 +50,24 @@ export const SegmentedBar: FunctionalComponent<SegmentedBarProps> = ({
         }
 
         return (
-          <rect
-            width={value - widthPadding + "%"}
-            x={lastPercentage - value + xPadding + "%"}
-            height="100%"
-            rx={cornerRadius}
-            ry={cornerRadius}
-            fill={color}
-          />
+          <g>
+            <rect
+              width={value - widthPadding + "%"}
+              x={lastPercentage - value + xPadding + "%"}
+              height="100%"
+              rx={cornerRadius}
+              ry={cornerRadius}
+              fill={color}
+            />
+            <rect
+              width={value - widthPadding + "%"}
+              x={lastPercentage - value + xPadding + "%"}
+              height="100%"
+              rx={cornerRadius}
+              ry={cornerRadius}
+              fill={`url(#${patternId})`}
+            />
+          </g>
         );
       })}
     </svg>
