@@ -20,7 +20,7 @@ export interface SegmentedStatusBarProps {
 }
 
 /**
- * UI component for visualizing statuses
+ * UI component for visualizing statuses within a bar view
  *
  * @param {object} props
  * @param {array} props.items
