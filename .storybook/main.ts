@@ -22,7 +22,7 @@ const config: StorybookConfig = {
   webpackFinal: async (config) => {
     // Enable CSS Modules for .module.scss
     config.module?.rules?.push({
-      test: /\.module\.scss$/,
+      test: /\.scss$/,
       use: [
         "style-loader",
         "css-loader",
