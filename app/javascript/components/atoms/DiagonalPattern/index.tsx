@@ -14,6 +14,17 @@ export interface DiagonalPatternProps {
   strokeWidth?: number;
 }
 
+/**
+ * UI component for overlaying lines across an SVG
+ *
+ * @param {object} props
+ * @param {string} props.id
+ * @param {string} [props.patternUnits='userSpaceOnUse'] Default is `'userSpaceOnUse'`
+ * @param {number} [props.rotation=0] Default is `0`
+ * @param {number} [props.width=6] Default is `6`
+ * @param {number} [props.height=1] Default is `1`
+ * @param {number} [props.strokeWidth=1] Default is `1`
+ */
 export const DiagonalPattern: FunctionalComponent<DiagonalPatternProps> = ({
   id,
   patternUnits = DiagonalPatternUnits.UserSpaceOnUse,
