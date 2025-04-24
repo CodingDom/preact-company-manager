@@ -1,6 +1,7 @@
 import { arc } from "d3-shape";
 import { scaleLinear } from "d3-scale";
 import { FunctionalComponent } from "preact";
+import { DiagonalPattern } from "../../atoms/DiagonalPattern";
 
 export enum GaugeCornerRadius {
   Default = 0,
@@ -65,6 +66,8 @@ export const Gauge: FunctionalComponent<GaugeProps> = ({
     };
   });
 
+  const patternId = `diagonal-pattern-${crypto.randomUUID()}`;
+
   return (
     <div>
       <svg
@@ -72,9 +75,19 @@ export const Gauge: FunctionalComponent<GaugeProps> = ({
         width="9em"
         viewBox={[-1, -1, 2, 1].join(" ")}
       >
+        <DiagonalPattern
+          id={patternId}
+          strokeWidth={0.01}
+          height={0.1}
+          width={0.1}
+          rotation={-35}
+        />
         {backgroundArc && <path d={backgroundArc} fill="#dbdbe7" />}
         {filledArcs.map(({ path, color }) => (
-          <path d={path} fill={color} />
+          <g>
+            <path d={path} fill={color} />
+            <path d={path} fill={`url(#${patternId})`} />
+          </g>
         ))}
       </svg>
     </div>
