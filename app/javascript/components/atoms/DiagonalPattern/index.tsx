@@ -1,18 +1,42 @@
 import { FunctionalComponent } from "preact";
 
+export enum DiagonalPatternUnits {
+  UserSpaceOnUse = "userSpaceOnUse",
+  ObjectBoundingBox = "objectBoundingBox",
+}
+
 export interface DiagonalPatternProps {
   id: string;
+  patternUnits?: DiagonalPatternUnits;
+  rotation?: number;
+  width?: number;
+  height?: number;
+  strokeWidth?: number;
 }
 
 export const DiagonalPattern: FunctionalComponent<DiagonalPatternProps> = ({
   id,
+  patternUnits = DiagonalPatternUnits.UserSpaceOnUse,
+  rotation = 0,
+  width = 6,
+  height = 1,
+  strokeWidth = 1,
 }) => (
   <defs>
-    <pattern id={id} patternUnits="userSpaceOnUse" width="12" height="12">
-      <path
-        d="M0,0 l12,12"
+    <pattern
+      id={id}
+      patternUnits={patternUnits}
+      width={width}
+      height={height}
+      patternTransform={`rotate(${rotation})`}
+    >
+      <line
+        x1="0"
+        y1="0"
+        x2="0"
+        y2="1"
         stroke="rgba(255, 255, 255, 0.3)"
-        stroke-width="1"
+        stroke-width={strokeWidth}
       />
     </pattern>
   </defs>
