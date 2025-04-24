@@ -5,6 +5,10 @@ import { Row } from "../../atoms/Row";
 
 import "./Dashboard.scss";
 import { Gauge, GaugeCornerRadius } from "../../molecules/Gauge";
+import {
+  SegmentedBar,
+  SegmentedBarCornerRadius,
+} from "../../atoms/SegmentedBar";
 
 interface RoleCategoryStats {
   name: string;
@@ -38,6 +42,13 @@ const Dashboard = (props: DashboardProps) => {
             <p className="lead-text">
               {employeeStats.totalEmployees} Employees
             </p>
+            <SegmentedBar
+              fills={employeeStats.categories.map(({ percentage }, index) => ({
+                value: percentage,
+                color: getCategoryColor(index),
+              }))}
+              cornerRadius={SegmentedBarCornerRadius.Curved}
+            />
           </Card>
         </div>
 
@@ -79,10 +90,27 @@ const getEmployeeStats = (stats: EmployeeStats) => {
     (prevCount, category) => prevCount + category.count,
     0
   );
+  const categories = stats.categories.map(({ name, count }) => ({
+    name,
+    count,
+    percentage: (count / totalEmployees) * 100,
+  }));
 
   return {
     totalEmployees,
+    categories,
   };
+};
+
+const getCategoryColor = (index: number) => {
+  const categoryColors = [
+    "var(--color-primary)",
+    "var(--color-success)",
+    "var(--color-warning)",
+    "var(--color-danger)",
+  ];
+
+  return categoryColors[index % (categoryColors.length - 1)];
 };
 
 export default Dashboard;
