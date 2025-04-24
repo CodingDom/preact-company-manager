@@ -1,24 +1,34 @@
-# README
+# Preact Company Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About
 
-Things you may want to cover:
+**_Preact Company Manager_** is a web application developed for managing a company's current employees, new hires, and finances.
 
-* Ruby version
+## Getting Started
 
-* System dependencies
+Here are the steps and tools required to get this project running locally.
 
-* Configuration
+### Prerequisites
 
-* Database creation
+- Ruby (>= 3.0) – use a version manager like rbenv
+- Rails - can run `gem install rails`
+- Node.js (>= 22) – use a version manager like nvm
+- Yarn - can run `npm install -g yarn`
+- PostgreSQL
+- Git
 
-* Database initialization
+### Install Dependencies
 
-* How to run the test suite
+- Run `bundle install` to install the necessary Ruby Gems.
+- Run `yarn install` to install the Node front-end dependencies.
 
-* Services (job queues, cache servers, search engines, etc.)
+### How to Run Application
 
-* Deployment instructions
+- Run `bin/rails db:migrate` to initialize database
+- Run `bin/dev` to start server
+- Navigate to `http://localhost:3000/dashboard`
 
-* ...
+### How to Run Storybook
+
+- Run `yarn storybook`
+- Navigate to `http://localhost:6006/`
