@@ -1,5 +1,3 @@
-# app/presenters/dashboard_presenter.rb
-
 class DashboardPresenter
   def data
     {
