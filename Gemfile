@@ -50,6 +50,9 @@ group :development, :test do
 
   # Generate fake data for seeding database
   gem "faker"
+
+  # Running unit tests
+  gem "rspec-rails"
 end
 
 gem "jsbundling-rails", "~> 1.3"
