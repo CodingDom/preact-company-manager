@@ -7,7 +7,7 @@ module.exports = {
   devtool: "source-map",
 
   entry: {
-    application: "./app/javascript/packs/application.tsx",
+    application: path.resolve(__dirname, "app/javascript/packs/application.tsx"),
   },
 
   output: {
