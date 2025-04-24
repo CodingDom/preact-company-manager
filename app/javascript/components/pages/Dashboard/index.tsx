@@ -3,10 +3,8 @@ import { Row } from "../../atoms/Row";
 
 import "./Dashboard.scss";
 import { Gauge, GaugeCornerRadius } from "../../molecules/Gauge";
-import {
-  SegmentedBar,
-  SegmentedBarCornerRadius,
-} from "../../atoms/SegmentedBar";
+import { SegmentedStatusBar } from "../../molecules/SegmentedStatusBar";
+import { SegmentedBarCornerRadius } from "../../atoms/SegmentedBar";
 
 interface RoleCategoryStats {
   name: string;
@@ -40,11 +38,14 @@ const Dashboard = (props: DashboardProps) => {
             <p className="lead-text">
               {employeeStats.totalEmployees} Employees
             </p>
-            <SegmentedBar
-              fills={employeeStats.categories.map(({ percentage }, index) => ({
-                value: percentage,
-                color: getCategoryColor(index),
-              }))}
+            <SegmentedStatusBar
+              items={employeeStats.categories.map(
+                ({ percentage, name }, index) => ({
+                  value: percentage,
+                  color: getCategoryColor(index),
+                  label: `${name} (${Math.round(percentage * 10) / 10}%)`,
+                })
+              )}
               cornerRadius={SegmentedBarCornerRadius.Curved}
             />
           </Card>
