@@ -21,8 +21,8 @@ export interface LegendProps {
  * UI component for labeling graphics
  *
  * @param {object} props
- * @param {array} items
- * @param {string} [props.orientation='horizontal'] Default is 'horizontal'
+ * @param {array} props.items
+ * @param {string} [props.orientation='horizontal'] Default is `'horizontal'`
  */
 export const Legend: FunctionalComponent<LegendProps> = ({
   items,
