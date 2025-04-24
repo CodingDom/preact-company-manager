@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 :root {
   --border-color: lightgray;
   --color-primary: #f77f00;
@@ -41,8 +43,8 @@ body {
   // Generate column classes
   @for $i from 1 through 12 {
     .col-#{$i} {
-      flex: 0 0 #{(100% / 12) * $i};
-      max-width: #{(100% / 12) * $i};
+      flex: 0 0 #{math.div(100%, 12) * $i};
+      max-width: #{math.div(100%, 12) * $i};
     }
   }
 
@@ -50,8 +52,8 @@ body {
   @media (min-width: 768px) {
     @for $i from 1 through 12 {
       .col-md-#{$i} {
-        flex: 0 0 #{(100% / 12) * $i};
-        max-width: #{(100% / 12) * $i};
+        flex: 0 0 #{math.div(100%, 12) * $i};
+        max-width: #{math.div(100%, 12) * $i};
       }
     }
   }
@@ -60,8 +62,8 @@ body {
   @media (min-width: 1024px) {
     @for $i from 1 through 12 {
       .col-lg-#{$i} {
-        flex: 0 0 #{(100% / 12) * $i};
-        max-width: #{(100% / 12) * $i};
+        flex: 0 0 #{math.div(100%, 12) * $i};
+        max-width: #{math.div(100%, 12) * $i};
       }
     }
   }
