@@ -13,7 +13,7 @@
     background-color: variables.$color-primary;
 
     &:hover {
-      background-color: color.adjust(variables.$color-primary, $lightness: 10%);
+      filter: brightness(1.1);
     }
   }
 }
